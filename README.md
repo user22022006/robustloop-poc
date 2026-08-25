@@ -28,7 +28,7 @@ Simulators like Gazebo add noise. But real-world robot crashes happen because of
 
 ```bash
 
-python robustloop\_poc.py
+python robustloop_poc.py
 
 
 
