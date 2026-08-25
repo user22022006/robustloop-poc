@@ -1,0 +1,24 @@
+name: RobustLoop Reliability CI
+
+on: [push, pull_request]
+
+jobs:
+  run-reliability-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 1. Code auschecken
+      uses: actions/checkout@v3
+
+    - name: 2. Python Setup
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 3. Run RobustLoop Tests
+      run: python robustloop_poc.py
+
+    - name: 4. Upload Test Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: robustloop-ci-report
+        path: robustloop_results.json
