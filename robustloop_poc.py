@@ -91,7 +91,7 @@ if __name__ == "__main__":
         if result["crashed"]:
             any_crash = True
 
-    # NEU: Ergebnisse als JSON-Artefakt speichern (Industrie-Standard für CI)
+    # NEU: Ergebnisse als JSON-Artefakt speichern 
     with open("robustloop_results.json", "w") as f:
         json.dump({"test_suite": "Sensor_Drift_Contradiction", "results": all_results}, f, indent=4)
     
@@ -102,7 +102,7 @@ if __name__ == "__main__":
         print(f"{r['version']:<10} | {'YES' if r['crashed'] else 'NO':<8} | {r['score']:<6}")
     print("-"*50)
     
-    # NEU: Echte CI-Logik. Exit 1 bei Crash -> GitHub Action schlägt fehl!
+    #   Exit 1 bei Crash -> GitHub Action schlägt fehl!
     if any_crash:
         print("\n❌ ROBUSTLOOP CI STATUS: FAILED")
         print("   -> At least one software version would crash in production.")
