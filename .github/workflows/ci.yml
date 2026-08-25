@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 1. Code auschecken
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: 2. Python Setup
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
@@ -18,7 +18,7 @@ jobs:
       run: python robustloop_poc.py
 
     - name: 4. Upload Test Artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: robustloop-ci-report
         path: robustloop_results.json
